@@ -1,0 +1,10 @@
+Knot = 8_13
+Primes = 29
+g(f,a,b)
+f(g,b,c)
+f(h,c,d)
+f(b,d,e)
+g(a,e,f)
+g(e,f,g)
+f(d,g,h)
+f(c,h,a)

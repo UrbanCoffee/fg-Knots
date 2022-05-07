@@ -1,0 +1,2 @@
+Knot = 9_4
+Primes = 7

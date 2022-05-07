@@ -1,0 +1,10 @@
+Knot = 8_17
+Primes = 37
+f(g,a,b)
+f(e,b,c)
+g(a,c,d)
+f(b,d,e)
+g(h,e,f)
+f(c,f,g)
+g(d,g,h)
+g(f,h,a)

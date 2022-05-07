@@ -1,0 +1,10 @@
+Knot = 8_16
+Primes = 7, 5
+f(d,a,b)
+g(e,b,c)
+f(h,c,d)
+g(g,d,e)
+g(c,e,f)
+g(a,f,g)
+f(b,g,h)
+g(f,h,a)
