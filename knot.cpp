@@ -70,6 +70,7 @@ crossings read(char *fn) {
         }
     }
 
+    fclose(fp);
     return List;
 }
 
