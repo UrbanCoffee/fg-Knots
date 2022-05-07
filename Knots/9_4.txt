@@ -1,2 +1,11 @@
 Knot = 9_4
 Primes = 7
+g(f,a,b)
+g(g,b,c)
+g(a,c,d)
+g(i,d,e)
+g(h,e,f)
+g(b,f,g)
+g(c,g,h)
+g(e,h,i)
+g(d,i,a)
