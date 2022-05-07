@@ -1,0 +1,10 @@
+Knot = 8_15
+Primes = 11
+g(d,a,b)
+g(g,b,c)
+g(a,c,d)
+g(c,d,e)
+g(h,e,f)
+g(e,f,g)
+g(b,g,h)
+g(f,h,a)
