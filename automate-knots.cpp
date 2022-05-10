@@ -1,9 +1,11 @@
 #include <iostream>
 #include "knot.h"
+#include "rrem.h"
 
 int main(int argc, char *argv[]){
-    if(argc < 2){
-        printf("Too few arguments.");
+    if(argc < 3){
+        printf("Too few arguments.\n");
+        printf("Use the following template: ./knot <#knot-id> <#prime>\n");
         return 1;
     }
     set_p(atoi(argv[2]));
@@ -16,12 +18,13 @@ int main(int argc, char *argv[]){
 
     Kmtrx knot_mtx;
     int prime = get_p();
-    for(int b = 1; b+2 < get_p(); ++b){
+    for(int b = 1; b+2 < prime; ++b){
         set_b(b);
         
         knot_mtx = build(&test);
     
         printf("b = (%d)\tp = %d\n\n", b, prime);
+        rrem(knot_mtx, prime, knot_mtx.size()-1);
         hprintMtrx(&knot_mtx);
         printf("\n");
 

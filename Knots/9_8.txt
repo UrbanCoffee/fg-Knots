@@ -1,0 +1,11 @@
+Knot = 9_8
+Primes = 31
+g(f,a,b)
+f(i,b,c)
+f(h,c,d)
+g(g,d,e)
+g(d,e,f)
+g(a,f,g)
+g(e,g,h)
+f(c,h,i)
+f(b,i,a)

@@ -1,18 +1,10 @@
-#ifndef READER_H
-#define READER_H
+#ifndef KNOT_H
+#define KNOT_H
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <vector>
 #include <string>
-
-struct knot_fg {
-    char crossing, // f or g crossings
-        x, y, z;  // strands. X is overstrand. Y is incoming strand. Z is outgoing strand.
-};
-
-typedef std::vector<int*> Kmtrx;
-typedef std::vector<knot_fg> crossings;
+#include "kdefs.h"
 
 void set_b(int);
 void set_p(int);
