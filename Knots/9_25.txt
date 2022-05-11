@@ -1,0 +1,11 @@
+Knot = 9_25
+Primes = 47
+f(g,a,b)
+g(e,b,c)
+g(i,c,d)
+g(b,d,e)
+g(d,e,f)
+g(h,f,g)
+f(a,g,h)
+g(f,h,i)
+g(c,i,a)

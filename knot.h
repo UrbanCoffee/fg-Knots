@@ -18,6 +18,7 @@ crossings read(char*);
 Kmtrx build(crossings*);
 void printMtrx(const Kmtrx *);
 void hprintMtrx(const Kmtrx *);
+void nprintMtrx(const Kmtrx *, unsigned int);
 void clear(Kmtrx *);
 
 

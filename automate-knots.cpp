@@ -25,7 +25,8 @@ int main(int argc, char *argv[]){
     
         printf("b = (%d)\tp = %d\n\n", b, prime);
         rrem(knot_mtx, prime, knot_mtx.size()-1);
-        hprintMtrx(&knot_mtx);
+        //hprintMtrx(&knot_mtx);
+        nprintMtrx(&knot_mtx, knot_mtx.size()-1);
         printf("\n");
 
         clear(&knot_mtx);

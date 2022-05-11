@@ -116,6 +116,24 @@ void hprintMtrx(const Kmtrx *m){
     }
 }
 
+// No-Zero Print Matrix
+// Prints the passed in Knot Matrix but any zeroes are replaced with spaces.
+// Does not seperate values with commas.
+void nprintMtrx(const Kmtrx *m, unsigned int size){
+    int val;
+    for(unsigned int k = 0; k < size; ++k){
+        printf("\t");
+        for(int j = 0; j + 1 < size; ++j){
+            val = (*m)[k][j];
+            // check if the value assigned to val is non-zero
+            (val != 0) ? printf("%3d ", val) : printf("%*s", 4, "") ;
+        }
+        val = (*m)[k][size-1];
+        (val != 0 ) ? printf("%3d\n", val) : printf("\n") ;
+        //printf("%3d\n", (*m)[k][size-2]);
+    }
+}
+
 void clear(Kmtrx *mtrx){
     for(int i = 0; i < mtrx->size(); ++i)
         delete[] (*mtrx)[i];
