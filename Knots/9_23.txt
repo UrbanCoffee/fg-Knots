@@ -1,0 +1,11 @@
+Knot = 9_23
+Primes = 5
+g(i,a,b)
+g(e,b,c)
+g(g,c,d)
+g(c,d,e)
+g(h,e,f)
+g(a,f,g)
+g(d,g,h)
+g(b,h,i)
+g(f,i,a)

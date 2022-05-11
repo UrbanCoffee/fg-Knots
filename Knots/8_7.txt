@@ -1,0 +1,10 @@
+Knot = 8_7
+Primes = 23
+g(c,a,b)
+g(g,b,c)
+f(f,c,d)
+f(h,d,e)
+f(a,e,f)
+g(b,f,g)
+f(d,g,h)
+f(e,h,a)

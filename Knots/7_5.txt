@@ -1,0 +1,9 @@
+Knot = 7_5
+Primes = 17
+g(e,a,b)
+g(g,b,c)
+g(f,c,d)
+g(a,d,e)
+g(d,e,f)
+g(b,f,g)
+g(c,g,a)
