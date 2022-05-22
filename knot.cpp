@@ -95,6 +95,16 @@ Kmtrx build(crossings* crx) {
     return mtrx;
 }
 
+void printCx(const crossings *c){
+    if(!c){
+        printf("Null passed as argument for printCx in knot.cpp.\n");
+        return;
+    }
+    knot_fg cc = (*c)[0];
+    for(unsigned i = 0; i < c->size(); cc = (*c)[++i])
+        printf("\t%c(%c,%c,%c)\n", cc.crossing, cc.x, cc.y, cc.z);
+}
+
 void printMtrx(const Kmtrx *m){
     unsigned int size = m->size();
     for(unsigned int k = 0; k < size; ++k){
@@ -139,4 +149,35 @@ void clear(Kmtrx *mtrx){
         delete[] (*mtrx)[i];
 
     mtrx->clear();
+}
+
+crossings ksum(const crossings *k1, const crossings *k2){
+    // First size-1 entries will be the same in sum and k1
+    crossings sum = *k1;
+    sum.pop_back(); // add it back later
+    unsigned int newSize = k1->size() + k2->size();
+    // Need to add new understand sequence in sum
+    int offset = k1->size() - 1;
+    char curChar = 'a' + offset;
+
+    knot_fg ncx;
+    for(unsigned int i = 0; i < k2->size(); ++i){
+        ncx = (*k2)[i];
+
+        if(ncx.x == 'a')
+            ncx.x = 'a' + newSize - 1;
+        else
+            ncx.x +=  offset;
+
+        ncx.y = curChar++;
+        ncx.z = curChar;
+
+        sum.push_back(ncx);
+    }
+    ncx = k1->back();
+    ncx.y = curChar;
+    ncx.z = 'a';
+    sum.push_back(ncx);
+
+    return sum;
 }

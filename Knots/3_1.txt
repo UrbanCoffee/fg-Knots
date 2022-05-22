@@ -1,0 +1,5 @@
+Knot = 3_1
+Primes = 3
+g(c,a,b)
+g(a,b,c)
+g(b,c,a)

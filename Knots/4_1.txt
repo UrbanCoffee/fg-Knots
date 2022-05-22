@@ -1,0 +1,6 @@
+Knot = 4_1
+Primes = 5
+f(d,a,b)
+g(a,b,c)
+f(b,c,d)
+g(c,d,a)

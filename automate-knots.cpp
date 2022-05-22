@@ -1,6 +1,6 @@
 #include <iostream>
 #include "knot.h"
-#include "rrem.h"
+//#include "rrem.h"
 
 int main(int argc, char *argv[]){
     if(argc < 3){
@@ -11,8 +11,8 @@ int main(int argc, char *argv[]){
     set_p(atoi(argv[2]));
 
     crossings test = read(argv[1]);
-    if(!test.size()){
-        printf("Nothing was read!");
+    if(test.empty()){
+        printf("Nothing was read!\n");
         return 1;
     }
 
