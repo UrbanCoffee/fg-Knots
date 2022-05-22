@@ -1,0 +1,9 @@
+Knot = 7_2
+Primes = 11
+g(c,a,b)
+g(f,b,c)
+g(a,c,d)
+g(g,d,e)
+g(b,e,f)
+g(e,f,g)
+g(d,g,a)

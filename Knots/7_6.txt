@@ -1,0 +1,9 @@
+Knot = 7_6
+Primes = 19
+g(e,a,b)
+f(g,b,c)
+g(f,c,d)
+g(c,d,e)
+g(a,e,f)
+g(d,f,g)
+f(b,g,a)
