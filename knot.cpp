@@ -39,7 +39,7 @@ int attemptToOpen(FILE **f, std::string fn) {
     return 1;
 }
 
-crossings read(char *fn) {
+crossings read(const char *fn) {
     if(!fn){
         printf("ERROR: Passed NULL to read().\n");
         exit(1);
@@ -58,11 +58,11 @@ crossings read(char *fn) {
     while(fgets(line, sizeof(line), fp)){
 
         if(sscanf(line, "Knot = %s\n", &str1) == 1){
-            printf("Knot = %s\n", str1);
+            //printf("Knot = %s\n", str1);
         }
 
         else if(sscanf(line, "Primes = %[^\n]\n", &str2) == 1){
-            printf("Primes = %s\n", str2);
+            //printf("Primes = %s\n", str2);
         }
 
         else if(sscanf(line, "%c(%c,%c,%c)", &crx.crossing, &crx.x, &crx.y, &crx.z) == 4){
@@ -127,7 +127,7 @@ void hprintMtrx(const Kmtrx *m){
 }
 
 // No-Zero Print Matrix
-// Prints the passed in Knot Matrix but any zeroes are replaced with spaces.
+// Prints the passed-in Knot Matrix but any zeroes are replaced with spaces.
 // Does not seperate values with commas.
 void nprintMtrx(const Kmtrx *m, unsigned int size){
     int val;
@@ -149,6 +149,79 @@ void clear(Kmtrx *mtrx){
         delete[] (*mtrx)[i];
 
     mtrx->clear();
+}
+
+int KDet_Helper(int** d, unsigned int sz){
+    if(!d){
+        printf("Null passed as argument for KDet_Helper in knot.cpp.\n");
+        return 0;
+    }
+    if(sz <= 0){ return 0;}
+    if(sz == 1){ return d[0][0];}
+
+    int nsz = sz - 1;
+
+    int index;
+    int **nd = new int*[nsz];
+    for(int i = 0; i<nsz; i++)
+        nd[i] = new int[nsz];
+
+    int ret = 0;
+
+    for(int j = 0; j < sz; j++){
+        if(d[0][j] == 0)
+            continue;
+
+        index = 0;
+        for(int i = 1; i < sz; i++){
+            for(int j_ = 0; j_ < sz; j_++){
+                if (j_ != j)
+                    nd[index/nsz][index++%nsz] = d[i][j_];
+        }}
+                                             // this last bit simulates (-1)^(i)
+        ret += d[0][j]*KDet_Helper(nd, sz - 1)*(-1+2*((j+1)%2));
+    }
+
+    for(int i = 0; i<nsz; i++)
+        delete[] nd[i];
+    delete[] nd;
+
+    return ret;
+}
+
+int KDet(const crossings *c){
+    if(!c){
+        printf("Null passed as argument for KDet in knot.cpp.\n");
+        return 0;
+    }
+    // return abs(AlxPlny(c)(-1));
+
+    int ret;
+
+    int sz = c->size();
+    int **nd = new int*[sz];
+    for(int i = 0; i<sz; i++)
+        nd[i] = new int[sz];
+    for(int i = 0; i<sz; i++){
+        for(int j = 0; j<sz; j++)
+            nd[i][j] = 0;
+    }
+
+    knot_fg cx;
+    for(int i = 0; i<sz; i++){
+        cx = (*c)[i];
+        nd[i][cx.x - 'a'] = 2;
+        nd[i][cx.y - 'a'] = -1;
+        nd[i][cx.z - 'a'] = -1;
+    }
+
+    ret = abs(KDet_Helper(nd, sz-1));
+
+    for(int i = 0; i<sz; i++)
+        delete[] nd[i];
+    delete[] nd;
+
+    return ret;
 }
 
 crossings ksum(const crossings *k1, const crossings *k2){
@@ -180,4 +253,15 @@ crossings ksum(const crossings *k1, const crossings *k2){
     sum.push_back(ncx);
 
     return sum;
+}
+
+bool isTrivial(const Kmtrx* km, unsigned int sz){
+    for(unsigned row  = 0; row < sz; ++row){
+        for(unsigned col = 0; col < sz; ++col){
+            if(row != col && (*km)[row][col])
+                return false;
+        }
+    }
+
+    return true;
 }
