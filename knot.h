@@ -6,6 +6,7 @@
 #include <string>
 #include "kdefs.h"
 #include "rrem.h"
+#include "misc.h"
 
 void set_b(int);
 void set_p(int);

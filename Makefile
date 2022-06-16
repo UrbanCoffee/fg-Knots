@@ -1,4 +1,4 @@
-sumKnot: auto-knotSums.cpp knot.cpp rrem.cpp
+sumKnot: auto-knotSums.cpp knot.cpp rrem.cpp misc.cpp
 	${CXX} $? -o $@
 
 echKnot: auto-knots.cpp knot.cpp rrem.cpp
