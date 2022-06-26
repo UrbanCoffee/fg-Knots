@@ -1,0 +1,8 @@
+Knot = 6_2
+Primes = 11
+f(d,a,b)
+g(f,b,c)
+f(e,c,d)
+f(a,d,e)
+g(b,e,f)
+g(c,f,a)

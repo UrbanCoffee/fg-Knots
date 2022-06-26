@@ -7,6 +7,12 @@ int main(){
 
     knotDetTest("3_1", 3);
     knotDetTest("4_1", 5);
+    knotDetTest("5_1", 5);
+    knotDetTest("5_2", 7);
+    knotDetTest("6_1", 9);
+    knotDetTest("6_2", 11);
+    knotDetTest("6_3", 13);
+
     knotDetTest("7_2", 11);
     knotDetTest("7_5", 17);
     knotDetTest("7_6", 19);
@@ -23,6 +29,8 @@ int main(){
     knotDetTest("9_8", 31);
     knotDetTest("9_23", 45);
     knotDetTest("9_25", 47);
+
+    knotDetTest("10_116", 95);
 
     return 0;
 }

@@ -50,6 +50,7 @@ int main(int argc, char *argv[]){
     Kmtrx knotSum_mtx;
     int prime;
     bool allTrivial = true;
+    
     for(int pIndex = 0; pIndex < primeCadidates.size(); pIndex++){
         prime = primeCadidates[pIndex].x;
         set_p(prime);

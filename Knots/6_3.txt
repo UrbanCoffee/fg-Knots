@@ -1,0 +1,8 @@
+Knot = 6_3
+Primes = 13
+g(c,a,b)
+g(f,b,c)
+f(e,c,d)
+f(a,d,e)
+g(b,e,f)
+f(d,f,a)

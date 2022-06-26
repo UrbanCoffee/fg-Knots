@@ -1,0 +1,12 @@
+Knot = 10_116
+Primes = 5 19
+f(h,a,b)
+g(i,b,c)
+f(f,c,d)
+g(a,d,e)
+f(b,e,f)
+g(j,f,g)
+f(d,g,h)
+g(e,h,i)
+g(c,i,j)
+g(g,j,a)

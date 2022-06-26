@@ -1,0 +1,7 @@
+Knot = 5_1
+Primes = 5
+g(d,a,b)
+g(e,b,c)
+g(a,c,d)
+g(b,d,e)
+g(c,e,a)
