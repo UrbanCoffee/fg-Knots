@@ -9,7 +9,7 @@ int main(int argc, char *argv[]){
         return -1;
     }
 
-    std::vector<pair> primeCadidates;
+    std::vector<pair> primeCandidates;
 
     // Set the first knot as the base for the knot sum.
     crossings knotSum = read(argv[1]);
@@ -17,7 +17,7 @@ int main(int argc, char *argv[]){
         printf("Nothing was read from  %s!\n", argv[1]);
         return 1;
     }
-    primeCadidates = primeFactor( KDet(&knotSum) );
+    primeCandidates = primeFactor( KDet(&knotSum) );
 
     // Add the remaining knots one at a time to the base knot (knotSum).
     // Exit if an error occurs.
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
             printf("Nothing was read from %s!\n", argv[i]);
             return 1;
         }
-        primeCadidates = unionVec(primeCadidates, primeFactor(KDet(&knot)));
+        primeCandidates = unionVec(primeCandidates, primeFactor(KDet(&knot)));
 
         knotSum = ksum(&knotSum, &knot);                        // add knot to knotSum
     }
@@ -43,16 +43,16 @@ int main(int argc, char *argv[]){
     //printf("Knot Sum Det: %d\n", KDet(&knotSum));
 
     printf("Primes: ");
-    for(int i = 0; i < primeCadidates.size(); ++i)
-        printf("%d ", primeCadidates[i].x);
+    for(int i = 0; i < primeCandidates.size(); ++i)
+        printf("%d ", primeCandidates[i].x);
     printf("\r\n");
 
     Kmtrx knotSum_mtx;
     int prime;
     bool allTrivial = true;
     
-    for(int pIndex = 0; pIndex < primeCadidates.size(); pIndex++){
-        prime = primeCadidates[pIndex].x;
+    for(int pIndex = 0; pIndex < primeCandidates.size(); pIndex++){
+        prime = primeCandidates[pIndex].x;
         set_p(prime);
 
         for(int b = 1; b+2 < prime; ++b){
